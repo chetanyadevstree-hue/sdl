@@ -18,16 +18,16 @@ public class Base {
 
 	@BeforeMethod
 
-	public void initialize() throws MalformedURLException, URISyntaxException {
+	public void initialize() throws MalformedURLException, URISyntaxException, InterruptedException {
 
 		XCUITestOptions option = new XCUITestOptions();
 		option.setNoReset(true);
 
-		option.setDeviceName("iPad (9th generation)");
+		option.setDeviceName("iPad Pro 13-inch (M5)");
 
-		option.setPlatformVersion("26.1");
+		option.setPlatformVersion("26.4");
 
-		String appdata = "/Users/niravjoshi/Library/Developer/Xcode/DerivedData/HomeWorth-fdeghfhjhgqwkobvurikpiihuprd/Build/Products/Debug-iphonesimulator/HomeWorth.app";
+		String appdata = "/Users/apple/Library/Developer/Xcode/DerivedData/HomeWorth-awkajvfkxieniegtjtjztxokvtwk/Build/Products/Debug-iphonesimulator/HomeWorth.app";
 
 		File app = new File(appdata);
 		if (app.exists()) {
@@ -41,11 +41,13 @@ public class Base {
 		}
 
 		option.setWdaLaunchTimeout(Duration.ofSeconds(1000));
+		
 
 		driver = new IOSDriver(new URI("http://127.0.0.1:4723").toURL(), option);
 		driver.rotate(ScreenOrientation.LANDSCAPE);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1000));
-
+		Thread.sleep(2000);
+	//	driver.switchTo().alert().accept();
 	}
 
 	// @AfterMethod
