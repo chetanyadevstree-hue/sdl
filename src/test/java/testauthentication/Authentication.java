@@ -100,15 +100,21 @@ public class Authentication extends Base {
 		System.out.print(town.getText());
 		WebElement town_name = driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeTextField[5]"));
 		System.out.println(" : " + town_name.getText());
+		town.click();
 		System.out.println("                                      ");
 		
 		
 		WebElement country = driver.findElement(AppiumBy.accessibilityId("County"));
 		System.out.print(country.getText());
 		WebElement country_name = driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeTextField[6]"));
+		System.out.println("                                      ");
 		
-		
-	
+		WebElement Postcode = driver.findElement(AppiumBy.accessibilityId("Postcode"));
+		System.out.print(Postcode);
+		Postcode.click();
+		WebElement PostCode_name =  driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeTextField[7]"));
+		System.out.println(" : " + PostCode_name.getText());
+		System.out.println("                                      ");
 		
 		
 		
